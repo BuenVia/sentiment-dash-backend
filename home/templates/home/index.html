@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Sentiment Feedback API</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #2563eb;
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Sentiment Feedback API</h1>
+        <p>
+            Welcome to the <strong>Customer Sentiment Feedback API</strong>.  
+            This project is built using <strong>Django</strong> and <strong>Django REST Framework</strong>, 
+            providing a robust and scalable backend for managing customer sentiment data.
+        </p>
+        <p>
+           This API is used to collect, analyze, and explore customer feedback in real time.
+        </p>
+        <p>More projects can be found at:</p>
+        <a href="https://mjclifford.com" class="btn">MJClifford.com</a>
+
+        <footer>
+            &copy; {{ year|default:2025 }} mjclifford.com
+        </footer>
+    </div>
+</body>
+</html>
