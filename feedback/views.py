@@ -6,6 +6,7 @@ from django.db.models.functions import TruncDate
 from .models import Feedback
 from .serilaizers import FeedbackSerializer
 from .sentiment import analyze_sentiment
+from datetime import date
 
 class FeedbackListCreate(APIView):
     def get(self, request):
@@ -26,6 +27,19 @@ class FeedbackListCreate(APIView):
             )
             return Response(FeedbackSerializer(feedback).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class FeedbackSentimentDateRange(APIView):
+    def get(self, request):
+        from_date = request.query_params.get("from_date")
+        to_date = request.query_params.get("to_date")
+        if not request.query_params.get("sentiment"):
+            feedback = Feedback.objects.filter(created_at__gte=f"{from_date}T00:00:00.000Z", created_at__lte=f"{to_date}T23:59:59.999Z")
+        else:
+            sentiment = request.query_params.get("sentiment")
+            feedback = Feedback.objects.filter(created_at__gte=f"{from_date}T00:00:00.000Z", created_at__lte=f"{to_date}T23:59:59.999Z", sentiment_label=sentiment)
+        serializer = FeedbackSerializer(feedback, many=True)
+        return Response(serializer.data)
+    
     
 class FeedbackStats(APIView):
     def get(self, request):
