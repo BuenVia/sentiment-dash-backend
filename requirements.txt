@@ -4,3 +4,5 @@ psycopg2-binary
 vaderSentiment
 django-cors-headers
 langchain-ollama
+langchain-anthropic
+dotenv
