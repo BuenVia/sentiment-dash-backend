@@ -84,5 +84,5 @@ class AIModel():
                 return response.content
             return "No data was found. Please try again."
         except Exception as err:
-            return f"The call was unsuccessful. Please try again. If this persists, contact the site admin.\n\n{err}"
+            return f"The call was unsuccessful. Please try again. If this persists, contact the site admin...\n\n{err}"
 
