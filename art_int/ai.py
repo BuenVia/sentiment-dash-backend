@@ -51,7 +51,7 @@ class AIModel():
         Returns:
             str: a string of the results.
         """
-        DB = "db.sqlite3"
+        DB = "../db.sqlite3"
         with sqlite3.connect(DB) as conn:
             cursor = conn.cursor()
             cursor.execute(query)
