@@ -46,7 +46,14 @@ class FeedbackListCreateAI(APIView):
                 sentiment_label = label
             )
             return Response(FeedbackSerializer(feedback).data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class FeedbackSummaryAI(APIView):
+    def get(self, request):
+        ai_model = AIModel()
+        ai_summary = ai_model.get_req()
+        if ai_summary is not None and ai_summary != "":
+            return Response(ai_summary)
 
 class FeedbackSentimentDateRange(APIView):
     def get(self, request):
