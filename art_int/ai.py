@@ -83,6 +83,6 @@ class AIModel():
                 response = model.invoke(messages)
                 return response.content
             return "No data was found. Please try again."
-        except Exception:
-            return "The call was unsuccessful. Please try again. If this persists, contact the site admin."
+        except Exception as err:
+            return f"The call was unsuccessful. Please try again. If this persists, contact the site admin.\n\n{err}"
 
